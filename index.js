@@ -5,7 +5,9 @@ import Keycloak from "keycloak-connect";
 import fileUpload from "express-fileupload";
 import { tradeController } from "./controllers/Trade.controller.js";
 import { dbConnect } from "./connector/mongo.js";
-import { rateLimit } from 'express-rate-limit'
+import { rateLimit } from 'express-rate-limit';
+import path from 'path';
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const limiter = rateLimit({
     windowMs: 2 * 60 * 1000, // 3 minutes
