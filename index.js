@@ -7,7 +7,12 @@ import { tradeController } from "./controllers/Trade.controller.js";
 import { dbConnect } from "./connector/mongo.js";
 import { rateLimit } from 'express-rate-limit';
 import path from 'path';
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+import { fileURLToPath } from 'url';
+
+import dotenv from 'dotenv';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const limiter = rateLimit({
     windowMs: 2 * 60 * 1000, // 3 minutes
