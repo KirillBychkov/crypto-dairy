@@ -4,10 +4,12 @@ import { Deposit } from "../schema/Deposit.schema.js";
 import { Upload } from "@aws-sdk/lib-storage";
 import { S3 } from '@aws-sdk/client-s3';
 import { TradeGroup } from "../schema/Trade.schema.js";
-import { __filename } from "../index.js";
+import { fileURLToPath } from "url";
 import dotenv from 'dotenv';
+
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, '../.env') });
+dotenv.config({ path: path.join(__dirname, '../', '.env') });
 
 console.log('__dirname controller', __dirname)
 
