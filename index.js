@@ -1,15 +1,18 @@
+import { fileURLToPath } from 'url';
+export const __filename = fileURLToPath(import.meta.url);
+
 import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
 import Keycloak from "keycloak-connect";
 import fileUpload from "express-fileupload";
-import { tradeController } from "./controllers/Trade.controller.js";
-import { dbConnect } from "./connector/mongo.js";
 import { rateLimit } from 'express-rate-limit';
-import { fileURLToPath } from 'url';
 import path from 'path';
 import dotenv from 'dotenv';
-export const __filename = fileURLToPath(import.meta.url);
+
+import { tradeController } from "./controllers/Trade.controller.js";
+import { dbConnect } from "./connector/mongo.js";
+
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '.env') });
 
