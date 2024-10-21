@@ -14,8 +14,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-console.log('__dirname index', __dirname)
-
 const limiter = rateLimit({
     windowMs: 2 * 60 * 1000, // 3 minutes
     limit: 120, // Limit each IP to 100 requests per `window` (here, per 15 minutes).

@@ -11,8 +11,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
-console.log('__dirname controller', __dirname)
-
 const s3 = new S3({
     forcePathStyle: process.env.FORCE_PATH_STYLE,
     endpoint: process.env.ENDPOINT,
