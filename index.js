@@ -6,14 +6,14 @@ import fileUpload from "express-fileupload";
 import { tradeController } from "./controllers/Trade.controller.js";
 import { dbConnect } from "./connector/mongo.js";
 import { rateLimit } from 'express-rate-limit';
-import path from 'path';
 import { fileURLToPath } from 'url';
-
+import path from 'path';
 import dotenv from 'dotenv';
-const __filename = fileURLToPath(import.meta.url);
+export const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log('__dirname index', __dirname)
 dotenv.config({ path: path.join(__dirname, '.env') });
+
+console.log('__dirname index', __dirname)
 
 const limiter = rateLimit({
     windowMs: 2 * 60 * 1000, // 3 minutes

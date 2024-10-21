@@ -1,16 +1,15 @@
+import path from 'path';
 import { tradeService } from "../services/Trade.service.js";
 import { Deposit } from "../schema/Deposit.schema.js";
 import { Upload } from "@aws-sdk/lib-storage";
 import { S3 } from '@aws-sdk/client-s3';
 import { TradeGroup } from "../schema/Trade.schema.js";
-import path from 'path';
-import { fileURLToPath } from 'url';
-
+import { __filename } from "../index.js";
 import dotenv from 'dotenv';
-const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
 console.log('__dirname controller', __dirname)
-dotenv.config({ path: path.join(__dirname, '.env') });
 
 const s3 = new S3({
     forcePathStyle: process.env.FORCE_PATH_STYLE,
