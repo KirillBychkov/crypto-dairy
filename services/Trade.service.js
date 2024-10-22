@@ -81,6 +81,7 @@ export class TradeService {
 
     postTradeGroup = async(userId, payload) => {
         const deposit = await this.depositSchema.findOne({ userId });
+        // TODO check if dep isset
         const session = await mongoose.startSession();
         session.startTransaction();
 
