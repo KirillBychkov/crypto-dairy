@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '.env') });
 
 const limiter = rateLimit({
-    validate: {validationsConfig: false},
+    validate: {xForwardedForHeader: false}, // allow proxy
     windowMs: 2 * 60 * 1000, // 3 minutes
     limit: 120, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
     standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
