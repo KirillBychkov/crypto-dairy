@@ -38,7 +38,7 @@ const keycloak = new Keycloak({}, config);
 
 app.use(limiter);
 app.use(fileUpload({
-    limits: { files: 4, fileSize: 1024 * 1024 },
+    limits: { files: 4, fileSize: 1024 * 1024 * 5 },
 }));
 app.use(
     keycloak.middleware(),
